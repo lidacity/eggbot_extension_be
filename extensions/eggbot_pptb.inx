@@ -1,45 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-    <_name>Post process trace bitmap</_name>
-    <id>command.eggbot.contributed.eggbot_pptb</id>
-    <dependency type="extension">org.inkscape.output.svg.inkscape</dependency>
-    <dependency type="executable" location="extensions">eggbot_pptb.py</dependency>
-    <dependency type="executable" location="extensions">inkex.py</dependency>       <dependency type="executable" location="extensions">simplestyle.py</dependency>
-    <_param name="Header" type="description" xml:space="preserve">
-This extension is intended for use after
-running the Inkscape "Trace Bitmap" tool
-of the "Path" menu
+	<_name>Пасляапрацоўка трасіроўкі растравага малюнку</_name>
+	<id>command.eggbot.contributed.eggbot_pptb</id>
+	<dependency type="extension">org.inkscape.output.svg.inkscape</dependency>
+	<dependency type="executable" location="extensions">eggbot_pptb.py</dependency>
+	<dependency type="executable" location="extensions">inkex.py</dependency>
+	<dependency type="executable" location="extensions">simplestyle.py</dependency>
 
-Running Trace Bitmap:
-1. Run the tool with the "Multiple scans"
-    selection of "Colors" or "Grays"
-2. "Stack scans" should not be checked
-3. "Remove background" may be checked
+	<_param name="Header" type="description" xml:space="preserve">
+Гэтае пашырэнне прызначана для ўжывання пасля
+запуску інструмента Inkscape "Абвесці растр"
+з меню "Шлях"
 
-Running this extension:
-1. Will move each scanned color to a
-    separate Inkscape layer
-2. Can optionally remove the original
-    bitmap image from the drawing
-3. Can optionally turn off the colored
-    fills within each traced regions
-4. Can optionally outline the traced
-    regions
-    </_param>
+Запуск Абвесці растравы малюнак:
+1. Запусціць інструмент "Множнае сканаванне"
+   з абранымі "колерамі" ці "адценнямі шэрага"
+2. Не варта задаваць птушку "Сканаванне стэку"
+3. Можна задаць птушку "Выдаліць фон"
 
-    <param name="removeImage" type="boolean" _gui-text="Remove original bitmap image?">true</param>
-    <param name="fillRegions" type="boolean" _gui-text="Fill each traced region with color?">true</param>
-    <param name="outlineRegions" type="boolean" _gui-text="Outline each traced region?">true</param>
+Запуск гэтага пашырэння:
+1. Перамесціць кожны адсканаваны колер на
+   асобны пласт Inkscape
+2. Пры жаданні можна выдаліць зыходны
+   растравы малюнак з чарцяжа
+3. Пры жаданні можна адключыць каляровыя
+   заліванні ўнутры кожнай вобласці
+4. Пры жаданні можна акрэсліць вобласць
+   рэгіёну
+	</_param>
 
-    <effect needs-live-preview="false">
-      <object-type>all</object-type>
-      <effects-menu>
-	<submenu _name="EggBot Contributed"/>
-      </effects-menu>
-    </effect>
+	<param name="removeImage" type="boolean" _gui-text="Выдаліць зыходны растравы малюнак?">true</param>
+	<param name="fillRegions" type="boolean" _gui-text="Запоўніць колерам кожную вобласць?">true</param>
+	<param name="outlineRegions" type="boolean" _gui-text="Абвясці контурам кожную вобласць?">true</param>
 
-    <script>
-      <command reldir="extensions" interpreter="python">eggbot_pptb.py</command>
-    </script>
+	<effect needs-live-preview="false">
+		<object-type>all</object-type>
+		<effects-menu>
+			<submenu _name="EggBot Contributed"/>
+		</effects-menu>
+	</effect>
+
+	<script>
+		<command reldir="extensions" interpreter="python">eggbot_pptb.py</command>
+	</script>
 
 </inkscape-extension>

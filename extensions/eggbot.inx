@@ -1,206 +1,168 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-  <_name>EggBot Control</_name>
-  <id>command.evilmadscientist.eggbot.rev280b1</id>
-  <dependency type="extension">org.inkscape.output.svg.inkscape</dependency>
-  <dependency type="executable" location="extensions">eggbot.py</dependency>
-  <dependency type="executable" location="extensions">inkex.py</dependency>
-  <param name="tab" type="notebook">
-  
-    <page name="splash" _gui-text="Plot">
-<_param indent="1" name="splashpage" type="description" appearance="header">
-Welcome to the EggBot interface!
-</_param>
-<_param indent="2" name="splashpage2" type="description" xml:space="preserve" >
-Press 'Apply' to begin plotting.
+	<_name>Кіраванне EggBot</_name>
+	<id>command.evilmadscientist.eggbot.rev280b1</id>
+	<dependency type="extension">org.inkscape.output.svg.inkscape</dependency>
+	<dependency type="executable" location="extensions">eggbot.py</dependency>
+	<dependency type="executable" location="extensions">inkex.py</dependency>
 
-Or, look in the other tabs to adjust your settings
-and use additional EggBot functions.
+	<param name="tab" type="notebook">
 
-Need help? 
+		<page name="splash" _gui-text="Маляваць">
+			<_param indent="1" name="splashpage" type="description" appearance="header">Сардэчна запрашаем у інтэрфейс EggBot!</_param>
+			<_param indent="2" name="splashpage2" type="description" xml:space="preserve">
+Націсніце 'Ужыць', каб пачаць маляванне.
+
+Альбо зазірніце ў іншыя ўкладкі, каб змяніць налады,
+і ўжыць дадатковыя функцыі EggBot.
+
+Патрэбна дапамога? 
 Visit http://wiki.evilmadscientist.com/eggbot
+			</_param>
+		</page>
 
-</_param>
-</page>
+		<page name='setup' _gui-text='Налады'>
+			<_param name="instructions_setup" type="description" appearance="header">EggBot: Асноўныя налады</_param>
+			<param indent="1" name="penUpPosition" type="int" min="0" max="100" _gui-text="Становішча фламастара ўверх, 0-100%:">55</param>
+			<param indent="1" name="penDownPosition" type="int" min="0" max="100" _gui-text="Становішча фламастара ўніз, 0-100%:">50</param>
+			<param name="setupType" type="optiongroup" _gui-text="  Дзеянне па 'Ужыць':">
+				<_option value="toggle-pen">Рухаць фламастар уверх/уніз</_option>
+				<_option value="align-mode">Падняць фламастар, выключыць рухавікі</_option>	
+			</param>
+			<_param indent="1" name="instructions_setup3" type="description" xml:space="preserve">
+- Падніміце і апусціце фламастар,
+каб праверыць становішча верха і ніза фламастара.
 
-    <page name='setup' _gui-text='Setup'>
+- Падніміце фламастар і выключыце крокавыя рухавікі,
+каб выраўнаваць аб'екты ў EggBot.
+			</_param>
+		</page>
 
-      <_param name="instructions_setup" type="description" appearance="header">
-EggBot: Basic Setup
-</_param>
-      <param indent="1" name="penUpPosition" type="int" min="0" max="100"
-	     _gui-text="Pen up position, 0-100%:">55</param>
-      <param indent="1" name="penDownPosition" type="int" min="0" max="100"
-	     _gui-text="Pen down position, 0-100%:">50</param>
+		<page name='timing' _gui-text='Сінхранізацыя'>
+			<_param name="instructions_timing1" type="description" appearance="header">Хуткасці перамяшчэнняў:</_param>
+			<param indent="1" name="penDownSpeed" type="int" min="1" max="10000" _gui-text="Хуткасць пры апусканні фламастара (крокаў/с):">300</param>
+			<param indent="1" name="penUpSpeed" type="int" min="1" max="10000" _gui-text="Хуткасць пры падыманні фламастара (крокаў/с):">400</param>
+			<_param name="instructions_timing3" type="description" appearance="header">Хуткасць узняцця і апускання фламастара:</_param>
+			<param indent="1" name="ServoUpSpeed" type="int" min="1" max="1600" _gui-text="Хуткасць узняцця фламастара (%/с):">50</param>
+			<param indent="1" name="penUpDelay" type="int" min="1" max="5000" _gui-text="Затрымка пасля ўзняцца фламастара (мс):">200</param>
+			<param indent="1" name="ServoDownSpeed" type="int" min="1" max="1600" _gui-text="Хуткасць апускання фламастара (%/с):">20</param>
+			<param indent="1" name="penDownDelay" type="int" min="1" max="5000" _gui-text="Затрымка пасля апускання фламастара (мс):">400</param>
+			<_param indent="2" name="instructions_timing4" type="description" xml:space="preserve">(Націсніце 'Ужыць', каб захаваць налады)</_param>
+		</page>
 
-  <param name="setupType" type="optiongroup"  _gui-text="
-  Action on 'Apply': ">
-	<_option value="toggle-pen"     >Toggle pen up/down</_option>
-	<_option value="align-mode"     >Raise pen, turn off motors</_option>	
-      </param>
-      <_param indent="1" name="instructions_setup3" type="description"
-	      xml:space="preserve">
-- Raise and lower pen to check the
-  pen-up and pen-down positions.
+		<page name='options' _gui-text='Налады'>
+			<_param name="instructions_options6" type="description" appearance="header">Пашыраныя налады:</_param>
+			<param indent="1" name="revPenMotor" type="boolean" _gui-text="Зваротны рух рухавіка 1 (фламастар)">true</param>
+			<param indent="1" name="revEggMotor" type="boolean" _gui-text="Зваротны рух рухавіка 2 (яйка)">true</param>
+			<param indent="1" name="wraparound" type="boolean" _gui-text="Вось яйка (x) абгортваецца вакол">true</param>
+			<param indent="1" name="startCentered" type="boolean" _gui-text="Пачаць з цэнтравання фламастара">true</param>
+			<param indent="1" name="returnToHome" type="boolean" _gui-text="Вярнуцца дахаты, калі скончыцца">true</param>
+			<param indent="1" name="engraving" type="boolean" _gui-text="Уключыць гравёр, калі ён падлучаны">false</param>
+			<param indent="1" name="smoothness" type="float" _gui-text="Згладжванне крывой (больш марудна):">.2</param>
+			<_param indent="2" name="instructions_options3" type="description" xml:space="preserve">(Націсніце 'Ужыць', каб захаваць налады)</_param>
+		</page>
 
-- Raise pen and turn off stepper motors
-  for aligning objects in the EggBot.
-</_param>
-    </page>
+		<page name="manual" _gui-text="Ручны">
+			<_param name="instructions_manual" type="description" appearance="header">Ручное кіраванне EggBot</_param>
+			<_param indent="1" name="instructions_manual" type="description">
+Вы можаце ўжываць гэтую ўкладку для адпраўкі "ручных" каманд EggBot:
+кіраваць крокавымі рухавікамі,
+падымаць ці апускаць фламастар,
+ўключаць ці выключаць рухавікі, ці
+правяраць версію прашыўкі платы (EBB).
+			</_param>
 
+			<param name="manualType" type="optiongroup" appearance="minimal" _gui-text="               Каманда:">
+				<_option value="none">- абраць -</_option>
+				<_option value="raise-pen">Падняць фламастар</_option>
+				<_option value="lower-pen">Апусціць фламастар</_option>
+				<_option value="walk-egg-motor">Запусціць рухавік 2 (яйка)</_option>
+				<_option value="walk-pen-motor">Запусціць рухавік 1 (фламастар)</_option>
+				<_option value="enable-motors">Уключыць рухавікі</_option>
+				<_option value="disable-motors">Выключыць рухавікі</_option>
+				<_option value="enable-engraver">Уключыць гравёр</_option>
+				<_option value="disable-engraver">Выключыць гравёр</_option>
+				<_option value="version-check">Праверыць версію EggBot</_option>
+				<_option value="strip-data">Выняць дадзеныя малявання з файла</_option>
+			</param>
+			<param name="WalkDistance" type="int" min="-32000" max="32000" _gui-text="               Адлегласць працы (крокаў):">5</param>
+			<_param indent="3" name="instructions_manual2" type="description" xml:space="preserve">
+Адлегласць працы можа быць станоўчай ці адмоўнай.
 
-    <page name='timing' _gui-text='Timing'>
+Націсніце 'Ужыць', каб выканаць каманду.
+			</_param>
+		</page>
 
-<_param name="instructions_timing1" type="description" appearance="header">Movement speeds:</_param>
+		<page name="resume" _gui-text="Аднавіць">
+			<_param name="instructions_resume1" type="description" appearance="header">Паўза і аднаўленне</_param>
+			<_param indent="1" name="instructions_resume2" type="description"> 
+Каб прыпыніць выкананне малявання, націсніце кнопку паўзы
+(з пазнакай "PRG") на плаце кантролера EggBot "EBB".
+Пасля прыпынення вы можаце змяніць налады ці
+выканаць любыя неабходныя налады ўручную.
 
+Каб аднавіць друк ці проста адмяніць і вярнуць фламастар
+у зыходнае становішча, націсніце "Ужыць" ніжэй.
 
-      <param indent="1" name="penDownSpeed" type="int" min="1" max="10000"
-	   _gui-text="Speed when pen is down (steps/s):">300</param>	
-      <param indent="1" name="penUpSpeed" type="int" min="1" max="10000"
-	   _gui-text="Speed when pen is up (step/s):">400</param>
+Ход малявання захоўваецца ў самым файле Inkscape.
+Калі вы плануеце выйсці з Inkscape і аднавіць пазней,
+захавайце дакумент перад выхадам.
 
-<_param name="instructions_timing3" type="description" appearance="header">Pen lift and lowering speeds:</_param>
+Вы можаце аднавіць працу непасрэдна з таго месца,
+дзе вы зрабілі паўзу, ці пасля выкарыстання
+каманды Вярнуцца дахаты.
+			</_param>
+			<param name="cancelOnly" type="boolean" _gui-text="Адмяцінь і вярнуцца дахаты">false</param>
+		</page>		
 
-      <param indent="1" name="ServoUpSpeed" type="int" min="1" max="1600"
-	   _gui-text="Pen raising speed (%/s):">50</param>
-      <param indent="1" name="penUpDelay" type="int" min="1" max="5000"
-	   _gui-text="Delay after raising pen (ms):">200</param>
-      <param indent="1" name="ServoDownSpeed" type="int" min="1" max="1600"
-	   _gui-text="Pen lowering speed (%/s):">20</param>
-      <param indent="1" name="penDownDelay" type="int" min="1" max="5000"
-	   _gui-text="Delay after lowering pen (ms):">400</param>
-<_param indent="2" name="instructions_timing4" type="description" xml:space="preserve">
+		<page name="layers" _gui-text="Пласты">
+			<_param name="instructions_layer" type="description" appearance="header">Маляваць асобныя пласты</_param>
+			<_param indent="1" name="instructions_layer2" type="description">
+Звычайна мы малюем контуры з усіх слаёў.
 
-(Press 'Apply' to save settings.)</_param>
-</page>
+Таксама вы можаце выбраць нанясенне асобнага пласта
+ці суполкі пластоў, напрыклад, для змены
+фламастара паміж пластамі пры маляванні.
 
-<page name='options' _gui-text='Options'>
-<_param name="instructions_options6" type="description" appearance="header">Advanced Options:</_param>
+Націск кнопкі 'Ужыць' у гэтым фрэйме прывядзе
+да малявання толькі пластоў, чые назвы пачынаюцца з
+абранай колькасці, якое можа быць да 100.
+			</_param>
+			<param name="layernumber" type="int" min="0" max="100" _gui-text="   Маляваць толькі пласты, якія пачынаюцца з:">1</param>
+		</page>			
 
-<param indent="1" name="revPenMotor" type="boolean"
-_gui-text="Reverse motion of Motor 1 (pen)">true</param>	
-<param indent="1" name="revEggMotor" type="boolean"
-_gui-text="Reverse motion of Motor 2 (egg)">true</param> 
-<param indent="1" name="wraparound" type="boolean"
-_gui-text="Egg (x) axis wraps around">true</param>
-<param indent="1" name="startCentered" type="boolean"
-_gui-text="Start with pen centered">true</param>	
-<param indent="1" name="returnToHome" type="boolean"
-_gui-text="Return home when done">true</param> 
-<param indent="1" name="engraving" type="boolean"
-_gui-text="Enable engraver, if attached">false</param>	
-<param indent="1" name="smoothness" type="float"
-_gui-text="Curve smoothing (lower for more):">.2</param>
-<_param indent="2"  name="instructions_options3" type="description" xml:space="preserve">
+		<page name="Help" _gui-text="*">
+			<_param name="instructions_general" type="description" xml:space="preserve">
+Пашырэнне Inkscape Кіраванне EggBot
+Выпуск 2.8.1 ад 2017-06-07
 
-(Press 'Apply' to save settings.)</_param>
-    </page>
+* Прапануецца ўжыванне прашыўкі EBB 2.5.1 ці навей.
 
-
-	
-    <page name="manual" _gui-text="Manual">
-<_param name="instructions_manual" type="description" appearance="header">EggBot Manual Control</_param>
-<_param indent="1" name="instructions_manual" type="description"  >
-You can use this tab to send "manual" commands
-to the EggBot: Walk the stepper motors, raise or
-lower the pen, enable or disable the motors, or 
-check the circuit board (EBB) firmware version.
-</_param>
-
-<param name="manualType" type="optiongroup" appearance="minimal"
-	     _gui-text="               Command: ">
-	<_option value="none"           >- Select -</_option>
-	<_option value="raise-pen"      >Raise the Pen</_option>
-	<_option value="lower-pen"      >Lower the Pen</_option>
-	<_option value="walk-egg-motor" >Walk Motor 2 (egg)</_option>
-	<_option value="walk-pen-motor" >Walk Motor 1 (pen)</_option>
-	<_option value="enable-motors"  >Enable Motors</_option>
-	<_option value="disable-motors" >Disable Motors</_option>
-	<_option value="enable-engraver"  >Engraver On</_option>
-	<_option value="disable-engraver" >Engraver Off</_option>
-	<_option value="version-check"  >Check EBB Version</_option>
-	<_option value="strip-data"     >Strip plotter data from file</_option>
-      </param>
-
-      <param name="WalkDistance" type="int" min="-32000" max="32000" 
-             _gui-text="               Walk distance (steps):">5</param>
-      <_param indent="3" name="instructions_manual2" type="description"
-	      xml:space="preserve">Walk distances may be positive or negative.
-
-Press 'Apply' to execute the command.
-</_param>
-    </page>
-
-    <page name="resume" _gui-text="Resume">
-<_param name="instructions_resume1" type="description"  appearance="header">Pause and Resume</_param>
-<_param indent="1" name="instructions_resume2" type="description"> 
-To pause a plot in progress, press the pause button
-(marked "PRG") on the EggBot's "EBB" controller
-board. After pausing, you can change settings or
-perform any manual adjustments that are needed.
-
-To resume printing, or to simply cancel and 
-return the pen home, press 'Apply' below.   
-
-Plot progress is stored in the Inkscape file itself.
-If you plan to quit Inkscape and resume later, 
-remember to save the document before quitting.
-
-You can resume directly where you paused, or
-after using the Return to Home Corner command.
-</_param>
-      <param name="cancelOnly" type="boolean"
-	     _gui-text="Cancel and return home only">false</param> 
-    </page>		
-
-    <page name="layers" _gui-text="Layers">
-<_param name="instructions_layer" type="description"  appearance="header">Print individual layer(s) </_param>
-<_param  indent="1" name="instructions_layer2" type="description" >
-Normally, we plot paths from all layers.  
-
-You can also choose to plot a single layer 
-or group of layers, for example to change
-pens between plotting layers.
-
-Pressing 'Apply' from this frame will plot
-only layers whose names begin with the 
-selected number, which can be up to 100.
-</_param>
-      <param name="layernumber" type="int" min="0" max="100"
-	     _gui-text="   Plot only layers beginning with: ">1</param>
-    </page>			
-
-    <page name="Help" _gui-text="*">
-      <_param name="instructions_general" type="description"
-	      xml:space="preserve">
-EggBot Control Inkscape extension 
-Release 2.8.1, dated 2017-06-07
-
-* EBB Firmware 2.5.1 or newer is recommended.
-
-Known issues:
-* "Cancel" function does not work while plotting.
-  (This is due to a known bug in Inkscape; the
-   "cancel" button does not work with any
-   Inkscape extension, including this one.)
+Вядомыя праблемы:
+* Функцыя "Адмяніць" не працуе падчас малявання.
+  (Гэта звязана з вядомай праблемай Inkscape;
+   кнопка "Адмяніць" не працуе ні з адным
+   пашырэннем Inkscape, уключна гэтае.)
    
-Latest version and issue tracker available at:
+Апошняя версія і адсочванне праблем даступныя па адрасу:
 https://github.com/evil-mad/EggBot/
 
+Пераклад на беларускую мову:
+https://github.com/lidacity/eggbot_extension_be/
+			</_param>
+		</page>
 
-</_param>
-    </page>
-  </param>
+	</param>
 
-  <effect needs-live-preview="false" needs-document="no">
-    <object-type>all</object-type>
-    <effects-menu>
-      <submenu _name="EggBot"/>
-    </effects-menu>
-  </effect>
+	<effect needs-live-preview="false" needs-document="no">
+		<object-type>all</object-type>
+		<effects-menu>
+			<submenu _name="EggBot"/>
+		</effects-menu>
+	</effect>
 
-  <script>
-    <command reldir="extensions" interpreter="python">eggbot.py</command>
-  </script>
+	<script>
+		<command reldir="extensions" interpreter="python">eggbot.py</command>
+	</script>
 
 </inkscape-extension>

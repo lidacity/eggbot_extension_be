@@ -1,48 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-  <_name>Reorder Paths for Speed</_name>
-  <id>command.evilmadscience.eggbot_reorder2.eggbot</id>
-  <dependency type="extension">org.inkscape.output.svg.inkscape</dependency>
-  <dependency type="executable" location="extensions">eggbot_reorder.py</dependency>
-  <dependency type="executable" location="extensions">inkex.py</dependency>
-  <!-- Written by Matthew Beckler for the Egg-Bot project. Email questions and comments to matthew at mbeckler dot org -->
+	<_name>Змена парадку шляхоў для павышэння хуткасці</_name>
+	<id>command.evilmadscience.eggbot_reorder2.eggbot</id>
+	<dependency type="extension">org.inkscape.output.svg.inkscape</dependency>
+	<dependency type="executable" location="extensions">eggbot_reorder.py</dependency>
+	<dependency type="executable" location="extensions">inkex.py</dependency>
+	<!-- Written by Matthew Beckler for the Egg-Bot project. Email questions and comments to matthew at mbeckler dot org -->
 
-	  <_param name="Header" type="description" xml:space="preserve">
- This extension will perform simple optimizations 
- of selected paths. It will try to change the 
- order of plotting so as to reduce the amount
- of "pen-up" travel that occurs between paths.
- 
- Solving for optimal plot order is a difficult
- problem, known in computer science as the
- "traveling salesman problem," or just "TSP."  
- 
- This routine does not look for the best possible
- solution; that can be slow. Instead it tries a
- few quick methods that often reduce pen-up 
- travel distance (and time) by 30% or more. 
+	<_param name="Header" type="description" xml:space="preserve">
+Гэтае пашырэнне будзе выконваць простую аптымізацыю абраных шляхоў.
+Яно паспрабуе змяніць парадак малявання такім чынам, каб паменшыць колькасць
+перасоўванняў "фламастара ўверх", якія ўзнікаюць паміж шляхамі.
 
- Please note: This extension is still considered 
- experimental, and is only provided in case you 
- may find it useful. Be sure to save a copy of 
- your document before running this routine.
-            </_param>
+Пошук аптымальнага парадку пабудовы графіка - складаная задача,
+вядомая ў інфарматыцы як "задача коміваяжора" ці проста "TSP".
 
-  <!--
-  <param name="reverse" type="boolean" _gui-text="Allow paths to be reversed*">false</param>
-  <param name="wrap" type="boolean" _gui-text="Allow wrap-around egg axis*">false</param>
+Працэдура не шукае найлепшае магчымае рашэнне;
+гэта можа быць павольным працэсам.
+Замест гэтага яна выкарыстоўвае некалькі хуткіх метадаў,
+якія часта скарачаюць адлегласць (і час) перамяшчэння фламастара
+на 30% і больш.
 
-	  <_param name="nyet" type="description" xml:space="preserve">
-  *Option not yet implemented.
-            </_param>
--->
-  <effect needs-live-preview="false" needs-document="no">
-    <object-type>all</object-type>
-    <effects-menu>
-        <submenu _name="EggBot"/>
-    </effects-menu>
-  </effect>
-  <script>
-    <command reldir="extensions" interpreter="python">eggbot_reorder.py</command>
-  </script>
+Калі ласка, звярніце ўвагу:
+Гэта пашырэнне ўсё яшчэ разглядаецца эксперыментальны,
+і прадастаўляецца толькі ў выпадку, калі вы палічыце яго карысным.
+Абавязкова захавайце копію вашага дакумента
+перад запускам гэтай працэдуры.
+	</_param>
+
+	<!--
+	<param name="reverse" type="boolean" _gui-text="Дазволіць змену шляхоў на супрацьлеглыя*">false</param>
+	<param name="wrap" type="boolean" _gui-text="Дазволіць яйку абярнуцца вакол восі*">false</param>
+
+	<_param name="nyet" type="description" xml:space="preserve">  *Налады, якія яшчэ не рэалізаваныя.</_param>
+	-->
+
+	<effect needs-live-preview="false" needs-document="no">
+		<object-type>all</object-type>
+		<effects-menu>
+			<submenu _name="EggBot"/>
+		</effects-menu>
+	</effect>
+
+	<script>
+		<command reldir="extensions" interpreter="python">eggbot_reorder.py</command>
+	</script>
+
 </inkscape-extension>

@@ -1,69 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-  <_name>Sine and Lace</_name>
-  <id>command.experiment.sineandlace</id>
-  <dependency type="executable" location="extensions">eggbot_sineandlace.py</dependency>
-  <dependency type="executable" location="extensions">inkex.py</dependency>
+	<_name>Сінус і карункі</_name>
+	<id>command.experiment.sineandlace</id>
+	<dependency type="executable" location="extensions">eggbot_sineandlace.py</dependency>
+	<dependency type="executable" location="extensions">inkex.py</dependency>
 
-<param name="tab" type="notebook">
-  <page name="splash" _gui-text="Sine and Lace">
-    <param name="nWidth" type="int" min="1" max="10000"
-	 _gui-text="Width (pixels)">3200</param>
+	<param name="tab" type="notebook">
 
-    <param name="nHeight" type="int" min="1" max="10000"
-	 _gui-text="Height (pixels)">100</param>
+		<page name="splash" _gui-text="Sine and Lace">
+			<param name="nWidth" type="int" min="1" max="10000" _gui-text="Шырыня (пікселяў)">3200</param>
+			<param name="nHeight" type="int" min="1" max="10000" _gui-text="Вышыня (пікселяў)">100</param>
+			<param name="fCycles" type="float" min="0.0001" max="10000" precision="5" _gui-text="Колькасць цыкклаў (перыядаў)">10</param>
+			<param name="nrN" type="int" min="-100" max="100" _gui-text="Пачатковы вугал пры 2 pi ( n / m ); n = ">0</param>
+			<param name="nrM" type="int" min="-100" max="100" _gui-text="Пачатковы вугал пры 2 pi ( n / m ); m = ">0</param>
+			<param name="fRecess" type="float" min="0" max="100" precision="5" _gui-text="Адхіленне ад канверта ў адсотках">2</param>
+			<param name="nSamples" type="int" min="2" max="100000" _gui-text="Колькасць кропак выбаркі">1000</param>
+			<param name="nOffsetX" type="int" min="-10000" max="10000" _gui-text="Пачатковая каардыната x (пікселі)">0</param>
+			<param name="nOffsetY" type="int" min="-10000" max="10000" _gui-text="Пачатковая каардыната y (пікселі)">500</param>
+			<param name="bLace" type="boolean" _gui-text="Карунак">true</param>
+			<param name="bSpline" type="boolean" _gui-text="Сплайн">false</param>
+		</page>
 
-    <param name="fCycles" type="float" min="0.0001" max="10000" precision="5"
-	 _gui-text="Number of cycles (periods)">10</param>
+		<page name="info" _gui-text="Аб...">
+			<_param name="aboutpage" type="description" xml:space="preserve">
+Гэтае пашырэнне адлюстроўвае сінусоідныя і "карункавыя" узоры,
+перыяд якіх зададзены множна шырыні дакумента ці любой названай шырыні.
+Калі абраць два раней намаляваных ўзораў, можна ўпісаць у іх трэці ўзор.
+Аднак ўзоры могуць не ўпісвацца ў упісаны ўзор.
 
-    <param name="nrN" type="int" min="-100" max="100"
-	 _gui-text="Start angle at 2 pi ( n / m ); n = ">0</param>
+Пашырэнне можна знайсці ў Thingiverse як Thing #24594.
 
-    <param name="nrM" type="int" min="-100" max="100"
-	 _gui-text="Start angle at 2 pi ( n / m ); m = ">0</param>
-
-    <param name="fRecess" type="float" min="0" max="100" precision="5"
-	 _gui-text="Recede from envelope by percentage">2</param>
-
-    <param name="nSamples" type="int" min="2" max="100000"
-	 _gui-text="Number of sample points">1000</param>
-
-    <param name="nOffsetX" type="int" min="-10000" max="10000"
-	 _gui-text="Starting x coordinate (pixels)">0</param>
-
-    <param name="nOffsetY" type="int" min="-10000" max="10000"
-	 _gui-text="Starting y coordinate (pixels)">500</param>
-
-    <param name="bLace" type="boolean" _gui-text="Lace">true</param>
-
-    <param name="bSpline" type="boolean" _gui-text="Spline">false</param>
-  </page>
-  <page name="info" _gui-text="About...">
-    <_param name="aboutpage" type="description" xml:space="preserve">
-This extension renders sinusoidal and "lace"
-patterns whose period is a specified multiple
-of the document width or any specified width.
-By selecting two previously drawn patterns,
-a third pattern may be inscribed within them.
-Patterns may not be inscribed within an inscribed
-pattern, however.
-
-This extension may be found at Thingiverse as
-Thing #24594.
-
-Sine and Lace v0.9
+Сінус і карункі v0.9
 Dan Newman (dan newman @ mtbaldy us)
-12 June 2012
-</_param>
-  </page>
-</param>
+12 чэрвеня 2012
+			</_param>
+		</page>
 
-  <effect>
-    <effects-menu>
-      <submenu _name="EggBot Contributed"/>
-    </effects-menu>
-  </effect>
-  <script>
-    <command reldir="extensions" interpreter="python">eggbot_sineandlace.py</command>
-  </script>
+	</param>
+
+	<effect>
+		<effects-menu>
+			<submenu _name="EggBot Contributed"/>
+		</effects-menu>
+	</effect>
+
+	<script>
+		<command reldir="extensions" interpreter="python">eggbot_sineandlace.py</command>
+	</script>
+
 </inkscape-extension>

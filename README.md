@@ -3,6 +3,9 @@
 This Inkscape extension helps you to use the EggDuino based EggBot
 from inside Inkscape.
 
+## Note
+Localization to Belarussian language
+
 ## Installation Linux and OSX
 You have to put these two directories inside your ```~/.config/inkscape``` folder.
 

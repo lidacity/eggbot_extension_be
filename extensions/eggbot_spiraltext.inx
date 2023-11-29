@@ -1,123 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-  <_name>Spiral Wrapped Text</_name>
-  <id>command.eggbot.contributed.eggbot_spiraltext101</id>
-  <dependency type="executable" location="extensions">hersheydata.py</dependency>
-  <dependency type="executable" location="extensions">simplestyle.py</dependency>
-  <dependency type="executable" location="extensions">eggbot_spiraltext.py</dependency>
-  <dependency type="executable" location="extensions">inkex.py</dependency>
-  <param name="tab" type="notebook">
-    <page name="splash" _gui-text="Render Text">
-      <_param name="stuff" type="description">
-This extension renders passages of text as a single, long line
-of text, tilted slightly so that it spirals as it wraps around
-your egg.
+	<_name>Спіральны тэкст</_name>
+	<id>command.eggbot.contributed.eggbot_spiraltext101</id>
+	<dependency type="executable" location="extensions">hersheydata.py</dependency>
+	<dependency type="executable" location="extensions">simplestyle.py</dependency>
+	<dependency type="executable" location="extensions">eggbot_spiraltext.py</dependency>
+	<dependency type="executable" location="extensions">inkex.py</dependency>
 
-Specify the number of times the text should wrap. This value
-need not be a whole number.  The text will then be scaled so
-as to have the length (number of times to wrap) x 3200 pixels.
-</_param>
-      <param name="wrap" type="float" min="1" max="100" _gui-text="Number of times to wrap ">8.5</param>
-      <param name="stretch" type="boolean" _gui-text="Stretch the text horizontally to account for the egg's geometry? ">true</param>
-      <param name="flip" type="boolean" _gui-text="Plot with the egg's bottom at the egg motor? ">false</param>
-      <param name="text" type="string" _gui-text="Text ">How do you drop an egg 2 meters without it breaking? Drop it from 3 meters: it won't break for the first 2!  *   If a rooster laid an egg at the peak of a roof, which side would it roll down? Neither side: roosters don't lay eggs!  *  What's the best day to eat eggs? Fry day  *  What happens when you tickle eggs? They crack up!  *  What sport are eggs good at? Running!  * What kind of jokes do eggs tell? Egg yolks  *  What's an egg's favorite robot? The EggBot!</param>
-<!-- OMELET (2 servings): For a firm omelet, beat 2 eggs with a fork until blended.  Beat in 2 tablespoons cream or milk, 1/4 teaspoon salt, and a pinch of white pepper or paprika.  In a non-stick skillet, melt 3/4 tablespoons butter.  When hot, add the egg mixture and cook over low heat.  With a spatula, lift the edges and, by tilting the skillet, allow the uncooked custard to run underneath the omelet.  When the omelet is cooked to an even consistency, fold over and serve.  <times><i&>Bon appetit!</i></times> -->
-      <param name="fontfamily" type="optiongroup" appearance="minimal" _gui-text="Starting font ">
-	<_option value="sans">Sans</_option>
-	<_option value="times">Times</_option>
-	<_option value="script">Script</_option>
-      </param>
-    </page>
-    <page name="markup" _gui-text="Markup">
-      <_param name="aboutpage" type="description" xml:space="preserve">
-Simple&#160;markup&#160;may&#160;be&#160;used&#160;to&#160;switch&#160;between&#160;type&#160;faces&#160;(fonts)
-as well as to select bold, italic and emphasized type faces.
+	<param name="tab" type="notebook">
 
-Font selection:
-  &lt;sans&gt;Sans serif font&lt;/sans&gt;   (no italics)
-  &lt;times&gt;Font with serifs&lt;/times&gt;
-  &lt;script&gt;Script font&lt;/script&gt;   (italics redundant)
+		<page name="splash" _gui-text="Візуалізаця тэксту">
+			<_param name="stuff" type="description">
+Гэтае пашырэнне адлюстроўвае фрагменты тэксту ў выглядзе аднаго доўгага радка тэксту,
+які злёгка нахіленай так, каб ён закручваўся па спіралі, які абцякае яйка.
 
-Markup:
-  &lt;b&gt;boldface&lt;/b&gt;  --  Bold text
-  &lt;em&gt;emphasis&lt;/em&gt;  --  Emphasized text
-  &lt;i&gt;italics&lt;/i&gt;  --  Italicized text
+Пакажыце, колькі разоў тэкст павінен абцякацца.
+Гэтак значэнне неабавязкова павінна быць цэлым лікам.
+Потым тэкст будзе маштабаваны такім такім чынам,
+каб яго даўжыня (колькасць раз для пераносу) складала 3200 пікселяў.
+			</_param>
 
-Special characters:
-  &lt;  --  Enter " &amp;lt; " in your text
-  &gt;  --  Enter " &amp;gt; " in your text
-  &amp;  --  Enter " &amp;amp; " in your text 
-</_param>
-    </page>
-    <page name="fonts1" _gui-text="Text Fonts">
-      <_param name="aboutpage1" type="description" xml:space="preserve">
-In addition to the sans, times and script type families, other text-oriented
-type faces are available.  For these faces, use of the &lt;b&gt;, &lt;em&gt; and
-&lt;i&gt; markups have no effect and are ignored.
+			<param name="wrap" type="float" min="1" max="100" _gui-text="Колькасць абкручвання">8.5</param>
+			<param name="stretch" type="boolean" _gui-text="Расцягнуць тэкст па гарызанталі, каб улічыць геаметрыю яйка?">true</param>
+			<param name="flip" type="boolean" _gui-text="Маляваць знізу яйка на рухавіку яйка?">false</param>
+			<param name="text" type="string" _gui-text="Text ">Як можна выпусціць яйка на два метры і не разбіць яго? Кіньце яго з трох метраў: першыя два яно не разаб'ецца! * Калі певень знёс яйка на верхавіне даху, з якога боку яно скацілася б уніз? Ні з таго, ні з другога боку: Пеўні не адкладаюць яйкі! * У які дзень лепш за ўсё ёсць яйкі? Дзень смажання * Што адбываецца, калі вы казыча яйкі? Яны трэскаюцца! * У якім выглядзе спорту добрыя яйкі? Бег! * Якія Жарты распавядаюць яйкі? Яечныя жаўткі * Які любімы робат для яек? EggBot!</param>
+			<!-- Амлет( на 2 порцыі): каб амлет атрымаўся шчыльным, ўзбіце відэльцам два яйкі да аднароднай масы. Ўзбіце з дзвюма сталовымі лыжкамі вяршкоў ці малака, 1/4 чайнай лыжкі солі і дробкай белага перцу ці папрыкы. У патэльні з антіпрігарным пакрыццём падпаліце 3/4 лыжкі сметанковага масла. Калі яно нагрэецца, дадайце яечную сумесь і рыхтуйце на слабым агні. Лапаткай прыпадыміце краю і, нахіляючы патэльню, дайце сырому заварному крэму сцячы пад амлет. Калі амлет прыгатуецца да аднастайнай кансістэнцыі, перавярніце і падавайце. <times><i>Смачна есці!</i></times> -->
+			<param name="fontfamily" type="optiongroup" appearance="minimal" _gui-text="Пачатковы шрыфт">
+				<_option value="sans">Sans</_option>
+				<_option value="times">Times</_option>
+				<_option value="script">Script</_option>
+			</param>
+		</page>
 
-&lt;cyrillic&gt; -- Cyrillic
-&lt;futural&gt;, &lt;futram&gt; -- Sans 1-stroke, bold
-&lt;gothiceng&gt;,&#160;&lt;gothicger&gt;,&#160;&lt;gothicita&gt;&#160;--&#160;Gothic&#160;English,&#160;German,&#160;Italian
-&lt;greek&gt;, &lt;timesg;&gt; -- Greek 1-stroke, medium
-&lt;japanese&gt; -- Japanese
-&lt;scripts&gt;, &lt;scriptc&gt;, &lt;cursive&gt; -- Script&#160;1-stroke,&#160;medium,&#160;alternate
-&lt;timesi&gt;, &lt;timesib&gt; -- Serif medium italic, bold italic
-&lt;timesr&gt;, &lt;timesrb&gt; -- Serif medium, bold
+		<page name="markup" _gui-text="Разметка">
+			<_param name="aboutpage" type="description" xml:space="preserve">
+Простая&#160;разметка&#160;можа&#160;ўжывацца&#160;для&#160;пераключэння&#160;паміж&#160;гарнітурамі&#160;(шрыфтамі)
+а таксама вылучаць тлустым шрыфтам, нахіленым і падкрэсленымі гранямі шрыфта.
 
-Either &lt;EMS Allure&gt; or &lt;EMSAllure&gt; refers to the EMS Allure single-stroke font.
-For a complete list of EMS fonts, refer to the "Font face" list in the Render/Hershey text extension.
+Выбар шрыфта:
+  &lt;sans&gt;шрыфт Sans serif&lt;/sans&gt;   (не нахілены)
+  &lt;times&gt;шрыфт з serifs&lt;/times&gt;
+  &lt;script&gt;шрыфт Script&lt;/script&gt;   (залішні нахілены)
 
+Разметка:
+  &lt;b&gt;boldface&lt;/b&gt;  --  Тлусты тэкст
+  &lt;em&gt;emphasis&lt;/em&gt;  --  Вылучаны тэкст
+  &lt;i&gt;italics&lt;/i&gt;  --  Нахілены тэкст
 
+Спецыяльныя знакі:
+  &lt;  --  Enter " &amp;lt; " у тэксце
+  &gt;  --  Enter " &amp;gt; " у тэксце
+  &amp;  --  Enter " &amp;amp; " у тэксце
+			</_param>
+		</page>
 
+		<page name="fonts1" _gui-text="Тэкставыя шрыфты">
+			<_param name="aboutpage1" type="description" xml:space="preserve">
+У дадатак да сямействаў шрыфтоў sans, times і script даступныя іншыя шрыфты,
+якія арыентаваныя на тэкст.
+Для гэтых граняў выкарыстанне пазнак &lt;b&gt;, &lt;em&gt; і
+&lt;i&gt; не мае аніякага эфекту і будуць ігнараваныя.
 
-</_param>
-</page>
-    <page name="fonts2" _gui-text="Symbol Fonts">
-      <_param name="aboutpage1" type="description" xml:space="preserve">
-In addition to type faces for text, several type faces of symbols
-are also available.  When these type faces are used, the &lt;b&gt;,
-&lt;em&gt; and &lt;i&gt; markups have no effect and are ignored.
+&lt;cyrillic&gt; -- Кірылічны
+&lt;futural&gt;, &lt;futram&gt; -- 1-такставы Sans 1-stroke, тлусты
+&lt;gothiceng&gt;,&#160;&lt;gothicger&gt;,&#160;&lt;gothicita&gt;&#160;--&#160;Гатычны&#160;Англійскі,&#160;Нямецкі,&#160;Італьянскі
+&lt;greek&gt;, &lt;timesg;&gt; -- 1-тактавы грэчаскі, сярэдні
+&lt;japanese&gt; -- Японскі
+&lt;scripts&gt;, &lt;scriptc&gt;, &lt;cursive&gt; -- Script&#160;1-такставы,&#160;сярэдні,&#160;чаргаваны
+&lt;timesi&gt;, &lt;timesib&gt; -- Serif сярэдні нахілены, тлусты нахілены
+&lt;timesr&gt;, &lt;timesrb&gt; -- Serif сярэдні, тлусты
 
-&lt;astrology&gt; -- Astrology
-&lt;markers&gt; -- Markers
-&lt;mathlow&gt; -- Math (lower)
-&lt;mathupp&gt; -- Math (upper)
-&lt;meteorology&gt; -- Meteorology
-&lt;music&gt; -- Music
-&lt;symbolic&gt; -- Symbolic
+Любы &lt;EMS Allure&gt; ці &lt;EMSAllure&gt; ставіцца да аднаштрыхавага шрыфта EMS Allure.
+Для атрымання поўнага спісу шрыфтоў EMS звярніцеся да спісу "напісанне шрыфта" ў пашырэнні
+Візуалізацыя/Тэкст Hershey.
+			</_param>
+		</page>
 
+		<page name="fonts2" _gui-text="Сімвальныя шрыфты">
+			<_param name="aboutpage1" type="description" xml:space="preserve">
+У дадатак да шрыфтоў для тэксту таксама даступныя некалькі напісанняў сімвалаў.
+Пры ўжыванні гэтых напісанняў разметкі &lt;b&gt;,
+&lt;em&gt; and &lt;i&gt; не дзейнічаюць і будуць ігнараваныя.
 
+&lt;astrology&gt; -- Астралагічныя
+&lt;markers&gt; -- Маркеры
+&lt;mathlow&gt; -- Матэматыка (ніжні)
+&lt;mathupp&gt; -- Матэматыка (верхні)
+&lt;meteorology&gt; -- Метэаралогічныя
+&lt;music&gt; -- Музычныя
+&lt;symbolic&gt; -- Сімвалічная
+			</_param>
+		</page>
 
+		<page name="info" _gui-text="Аб...">
+			<_param name="aboutpage3" type="description" xml:space="preserve">
+Гэтае пашырэнне адлюстроўвае фрагмент тэксту, які нахілены пад вуглом
+такім чынам, каб спіральна абгортваць вакол яйка.
+Для адлюстравання тэксту ўжываюцца шрыфты "Hershey" для плоттэраў.
+Гэтыя шрыфты ўзятыя з NBS SP-424 1976-04,
+"A contribution to computer typesetting techniques:
+Tables of Coordinates for Hershey's Repertory of
+Occidental Type Fonts and Graphic Symbols."
 
+Каб згенераваць табліцы шрыфтоў Hershey,
+глядзіце пашырэнне "Тэкст Hershey"
+у катэгорыі пашырэнняў "Візуалізацыя".
 
+Для атрымання дадатковай інфармацыі, калі ласка, наведайце:
+www.evilmadscientist.com/go/hershey
+			</_param>
+		</page>
 
-</_param>
-</page>
-<page name="info" _gui-text="About...">
-<_param name="aboutpage3" type="description" xml:space="preserve">
-This extension renders a passage of text tilted at an angle
-so as to wrap around an egg in a spiral.  To render the text,
-the "Hershey" fonts for plotters is used.  These fonts are
-derived from NBS SP-424 1976-04, "A contribution to computer
-typesetting techniques: Tables of Coordinates for Hershey's
-Repertory of Occidental Type Fonts and Graphic Symbols."
+	</param>
 
-To generate tables of the Hershey Fonts, see the "Hershey Text"
-extension under the "Render" category of Extensions.
+	<effect needs-live-preview="true" needs-document="no">
+		<object-type>all</object-type>
+		<effects-menu>
+			<submenu _name="EggBot Contributed"/>
+		</effects-menu>
+	</effect>
 
-For additional information, please visit:
+	<script>
+		<command reldir="extensions" interpreter="python">eggbot_spiraltext.py</command>
+	</script>
 
-  www.evilmadscientist.com/go/hershey
-</_param>
-</page>
-</param>
-  <effect needs-live-preview="true" needs-document="no">
-    <object-type>all</object-type>
-    <effects-menu>
-      <submenu _name="EggBot Contributed"/>
-    </effects-menu>
-  </effect>
-  <script>
-    <command reldir="extensions" interpreter="python">eggbot_spiraltext.py</command>
-  </script>
 </inkscape-extension>
